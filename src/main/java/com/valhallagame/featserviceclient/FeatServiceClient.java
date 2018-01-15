@@ -8,8 +8,8 @@ import com.valhallagame.common.DefaultServicePortMappings;
 import com.valhallagame.common.RestCaller;
 import com.valhallagame.common.RestResponse;
 import com.valhallagame.featserviceclient.message.AddFeatParameter;
-import com.valhallagame.featserviceclient.message.DebugAddFeatParameter;
 import com.valhallagame.featserviceclient.message.GetFeatsParameter;
+import com.valhallagame.featserviceclient.message.RemoveFeatParameter;
 
 
 public class FeatServiceClient {
@@ -45,8 +45,8 @@ public class FeatServiceClient {
 				new AddFeatParameter(characterName, feat), String.class);
 	}
 
-	public RestResponse<String> debugAddFeat(String username, String feat) throws IOException {
-		return restCaller.postCall(featServiceServerUrl + "/v1/feat/debug-add-feat",
-				new DebugAddFeatParameter(username, feat), String.class);
+	public RestResponse<String> removeFeat(String characterName, String feat) throws IOException {
+		return restCaller.postCall(featServiceServerUrl + "/v1/feat/remove-feat",
+				new RemoveFeatParameter(characterName, feat), String.class);
 	}
 }

@@ -9,10 +9,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class DebugAddFeatParameter {
+public class RemoveFeatParameter {
 	@NotNull
-	private String username;
+	private String characterName;
 	
 	@NotNull
-	private String itemName;
+	private String featName;
 }
