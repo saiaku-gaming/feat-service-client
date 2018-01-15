@@ -14,5 +14,5 @@ public class AddFeatParameter {
 	private String characterName;
 	
 	@NotNull
-	private String featName;
+	private FeatName featName;
 }

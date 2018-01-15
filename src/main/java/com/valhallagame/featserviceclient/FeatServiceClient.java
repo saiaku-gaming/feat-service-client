@@ -11,7 +11,6 @@ import com.valhallagame.featserviceclient.message.AddFeatParameter;
 import com.valhallagame.featserviceclient.message.GetFeatsParameter;
 import com.valhallagame.featserviceclient.message.RemoveFeatParameter;
 
-
 public class FeatServiceClient {
 	private static FeatServiceClient featServiceClient;
 
@@ -36,17 +35,16 @@ public class FeatServiceClient {
 	}
 
 	public RestResponse<List<String>> getFeats(String characterName) throws IOException {
-		return restCaller.postCall(featServiceServerUrl + "/v1/feat/get-feats",
-				new GetFeatsParameter(characterName), new TypeReference<List<String>>() {});
+		return restCaller.postCall(featServiceServerUrl + "/v1/feat/get-feats", new GetFeatsParameter(characterName),
+				new TypeReference<List<String>>() {
+				});
 	}
 
-	public RestResponse<String> addFeat(String characterName, String feat) throws IOException {
-		return restCaller.postCall(featServiceServerUrl + "/v1/feat/add-feat",
-				new AddFeatParameter(characterName, feat), String.class);
+	public RestResponse<String> addFeat(AddFeatParameter input) throws IOException {
+		return restCaller.postCall(featServiceServerUrl + "/v1/feat/add-feat", input, String.class);
 	}
 
-	public RestResponse<String> removeFeat(String characterName, String feat) throws IOException {
-		return restCaller.postCall(featServiceServerUrl + "/v1/feat/remove-feat",
-				new RemoveFeatParameter(characterName, feat), String.class);
+	public RestResponse<String> removeFeat(RemoveFeatParameter input) throws IOException {
+		return restCaller.postCall(featServiceServerUrl + "/v1/feat/remove-feat", input, String.class);
 	}
 }
