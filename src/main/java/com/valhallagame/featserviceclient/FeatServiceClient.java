@@ -34,8 +34,8 @@ public class FeatServiceClient {
 		return featServiceClient;
 	}
 
-	public RestResponse<List<String>> getFeats(String characterName) throws IOException {
-		return restCaller.postCall(featServiceServerUrl + "/v1/feat/get-feats", new GetFeatsParameter(characterName),
+	public RestResponse<List<String>> getFeats(GetFeatsParameter input) throws IOException {
+		return restCaller.postCall(featServiceServerUrl + "/v1/feat/get-feats", input,
 				new TypeReference<List<String>>() {
 				});
 	}
