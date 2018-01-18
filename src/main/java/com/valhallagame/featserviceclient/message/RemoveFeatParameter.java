@@ -14,5 +14,5 @@ public class RemoveFeatParameter {
 	private String characterName;
 	
 	@NotNull
-	private FeatName featName;
+	private FeatName name;
 }
