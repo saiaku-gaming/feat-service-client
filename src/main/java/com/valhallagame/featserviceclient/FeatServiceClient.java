@@ -1,29 +1,26 @@
 package com.valhallagame.featserviceclient;
 
-import java.io.IOException;
-import java.util.List;
-
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.valhallagame.common.AbstractServiceClient;
 import com.valhallagame.common.DefaultServicePortMappings;
-import com.valhallagame.common.RestCaller;
 import com.valhallagame.common.RestResponse;
 import com.valhallagame.featserviceclient.message.AddFeatParameter;
 import com.valhallagame.featserviceclient.message.GetFeatsParameter;
 import com.valhallagame.featserviceclient.message.RemoveFeatParameter;
 
-public class FeatServiceClient {
+import java.io.IOException;
+import java.util.List;
+
+public class FeatServiceClient extends AbstractServiceClient {
 	private static FeatServiceClient featServiceClient;
 
-	private String featServiceServerUrl = "http://localhost:" + DefaultServicePortMappings.FEAT_SERVICE_PORT;
-	private RestCaller restCaller;
-
 	private FeatServiceClient() {
-		restCaller = new RestCaller();
+		serviceServerUrl = "http://localhost:" + DefaultServicePortMappings.FEAT_SERVICE_PORT;
 	}
 
-	public static void init(String featServiceServerUrl) {
+	public static void init(String serviceServerUrl) {
 		FeatServiceClient client = get();
-		client.featServiceServerUrl = featServiceServerUrl;
+		client.serviceServerUrl = serviceServerUrl;
 	}
 
 	public static FeatServiceClient get() {
@@ -35,16 +32,16 @@ public class FeatServiceClient {
 	}
 
 	public RestResponse<List<String>> getFeats(GetFeatsParameter input) throws IOException {
-		return restCaller.postCall(featServiceServerUrl + "/v1/feat/get-feats", input,
+		return restCaller.postCall(serviceServerUrl + "/v1/feat/get-feats", input,
 				new TypeReference<List<String>>() {
 				});
 	}
 
 	public RestResponse<String> addFeat(AddFeatParameter input) throws IOException {
-		return restCaller.postCall(featServiceServerUrl + "/v1/feat/add-feat", input, String.class);
+		return restCaller.postCall(serviceServerUrl + "/v1/feat/add-feat", input, String.class);
 	}
 
 	public RestResponse<String> removeFeat(RemoveFeatParameter input) throws IOException {
-		return restCaller.postCall(featServiceServerUrl + "/v1/feat/remove-feat", input, String.class);
+		return restCaller.postCall(serviceServerUrl + "/v1/feat/remove-feat", input, String.class);
 	}
 }
