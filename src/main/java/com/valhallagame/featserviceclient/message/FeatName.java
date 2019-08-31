@@ -16,5 +16,11 @@ public enum FeatName {
     FREDSTORP_NEVER_BEEN_BETTER,
     FREDSTORP_SPEEDRUNNER,
     FREDSTORP_EXTRACTOR,
-    FREDSTORP_EXTERMINATOR
+    FREDSTORP_EXTERMINATOR,
+
+    /*---------- Hjuo Feats -------------*/
+    HJUO_EXPLORER,
+
+    /*---------- Grynmas Lair Feats -------------*/
+    GRYNMAS_LAIR_JOTUNN_SLAYER
 }
