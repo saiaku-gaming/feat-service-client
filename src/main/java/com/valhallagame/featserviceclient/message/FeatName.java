@@ -1,6 +1,9 @@
 package com.valhallagame.featserviceclient.message;
 
 public enum FeatName {
+    /*---------- Nedsala Feats -------------*/
+    TUTORIAL_THE_JOURNEY_BEGINS,
+
     /*---------- Missveden Feats -------------*/
     MISSVEDEN_THE_CHIEFTAINS_DEMISE,
     MISSVEDEN_SAXUMPHILE,
@@ -20,6 +23,10 @@ public enum FeatName {
 
     /*---------- Hjuo Feats -------------*/
     HJUO_EXPLORER,
+    HJUO_PYROMANIA,
+    HJUO_LIKE_THE_WIND,
+    HJUO_PRECAUTIONS,
+    HJUO_THERMAL_VELOCITY,
 
     /*---------- Grynmas Lair Feats -------------*/
     GRYNMAS_LAIR_JOTUNN_SLAYER
